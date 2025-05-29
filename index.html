@@ -3,169 +3,408 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> fika best adventure</title>
+    <title>fika best</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Tailwind CSS CDN and Google Fonts -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="bg-white text-gray-900" style="font-family: 'Inter', sans-serif;">
 
-    <header>
-        <nav class="main-nav">
-            <ul class="nav-left">
-                <li><a href="/">Home</a></li>
-                <li><a href="contact">Contact</a></li>
-                <li><a href="services">Services</a></li>
+    <!-- HEADER -->
+    <header class="w-full border-b border-gray-200">
+        <nav class="main-nav flex justify-between items-center flex-wrap max-w-6xl mx-auto py-4 px-4">
+            <ul class="nav-left flex gap-10">
+                <li><a href="/" class="hover:text-blue-700">Home</a></li>
+                <li><a href="contact.html" class="hover:text-blue-700">Contact</a></li>
+                <li><a href="services" class="hover:text-blue-700">Services</a></li>
             </ul>
-            <!-- Logo text instead of image -->
-            <span class="nav-logo">Fika Best Adventure</span>
-            <ul class="nav-right">
-                <li><a href="testimonial">Testimonial</a></li>
-                <li><a href="places">places</a></li>
-                <li><a href="Login">Login</a></li>
+            <span class="nav-logo font-bold text-xl mx-16">Fika Best</span>
+            <ul class="nav-right flex gap-10">
+                <li><a href="testimonial" class="hover:text-blue-700">Testimonial</a></li>
+                <li><a href="places" class="hover:text-blue-700">Places</a></li>
+                <li><a href="login" class="hover:text-blue-700">Login</a></li>
             </ul>
         </nav>
     </header>
 
-    <section class="background-image-section">
-        <div class="background-content">
-            <h2>Welcome to Your Next Adventure</h2>
-            <p>Explore the world with Fika Best Adventure!</p>
+    <!-- HERO SECTION -->
+    <section class="custom-hero-section w-full flex flex-col items-center justify-center py-16 px-4" style="position:relative;">
+        <div class="custom-hero-bg-shapes absolute inset-0 pointer-events-none z-0">
+            <div class="shape shape-yellow"></div>
+            <div class="shape shape-blue"></div>
+            <div class="shape shape-pink"></div>
+            <div class="shape shape-green"></div>
         </div>
-    
-    </section>
-
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Experience Intailing Travelling: Every Detail Considered.</h1>
-            <p>From meticulously crafted itineraries to insightful local knowledge, we ensure every aspect of your journey is intelligently planned for an unforgettable experience.</p>
-            <a href="#" class="button">Discover Detailed Itineraries</a>
-        </div>
-    </section>
-
-    <section class="services" id="services">
-        <h2>Our Services</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <img src="./assets/road trip 2.jpeg" alt="Road trip icon with a car on a winding road" class="service-icon">
-                <h3>Scenic Road Trip Curation</h3>
-                <p>Discover breathtaking landscapes with our meticulously planned road trip itineraries. We leverage smart mapping technology and local insights to guide you through the most picturesque routes, ensuring unforgettable drives and stunning viewpoints. Imagine cruising in a stylish car through winding coastal roads or majestic mountain passes, with every detail of your journey optimized for scenic beauty and comfort.</p>
-                <a href="#" class="learn-more">Learn More</a>
-            </div>
-            <div class="service-card">
-                 <img src="./assets/destination icon.jpeg" alt="Icon representing virtual destination visualization" class="service-icon">
-                <h3>Immersive Destination Visualizations</h3>
-                <p>Experience the world's most beautiful sceneries before you even pack your bags. Our service provides interactive 360° virtual tours and high-definition videos of stunning locations, giving you an immersive preview of your destination. We also offer curated collections of awe-inspiring photography and videography to inspire your next adventure. Think of exploring a vibrant cityscape from a rooftop terrace or witnessing the Northern Lights from a cozy, modern vehicle – all from the comfort of your home.</p>
-                <a href="#" class="learn-more">Learn More</a>
-            </div>
-            <div class="service-card">
-                <img src="./assets/friendly.jpeg" alt="Icon of a stylish,friendly vehicle" class="service-icon">
-                <h3>Sustainable and Stylish Transportation Options</h3>
-                <p>Travel in modern style while minimizing your environmental impact. We offer curated selections of eco-friendly and stylish transportation options, from electric vehicles for scenic drives to comfortable and efficient train journeys through picturesque landscapes. Our intelligent planning ensures seamless connections and allows you to enjoy the beauty of the world responsibly. Picture yourself gliding through rolling hills in a sleek electric car or relaxing on a panoramic train journey through the Swiss Alps.</p>
-                <a href="#" class="learn-more">Learn More</a>
+        <div class="custom-hero-content relative z-10 max-w-3xl text-center">
+            <h1 class="text-5xl font-extrabold mb-4 leading-tight">
+                Guide for Your <br> Incredible Travel Experiences
+            </h1>
+            <p class="text-lg mb-6">
+                Connect with travel experts, guides, and fellow adventurers to support your journey.
+            </p>
+            <button class="btn-gradient px-8 py-3 rounded-full text-white font-semibold shadow-lg hover:bg-blue-800 transition-colors">
+                Get Started
+            </button>
+            <div class="custom-hero-face-shapes flex justify-center mt-8 gap-4">
+                <div class="shape-face">
+                    <div class="shape-mouth"></div>
+                </div>
+                <div class="shape shape-blue"></div>
+                <div class="shape shape-pink"></div>
+                <div class="shape shape-orange"></div>
             </div>
         </div>
     </section>
 
-    <section class="testimonials" id="testimonials">
-        <h2>What People Say</h2>
-        <div class="testimonial-slider">
-            <div class="testimonial-card">
-                <p>"The 'Scenic Road Trip Curation' was absolutely fantastic! The route was breathtaking, and the smart planning ensured we had the perfect car for the winding roads and knew all the best viewpoints. It truly was an unforgettable journey through stunning landscapes."</p>
-                <p>- Emily R.</p>
+    <!-- HOW IT WORKS SECTION -->
+    <section class="w-full flex justify-center py-16 px-4 bg-gray-50">
+        <div class="w-full max-w-6xl flex flex-col md:flex-row items-center justify-center bg-white p-8 rounded-2xl shadow-lg">
+            <div class="md:w-1/2 text-center md:text-left mb-8 md:mb-0 md:pr-8">
+                <p class="text-sm font-medium text-gray-500 uppercase tracking-wider mb-2">How It Works</p>
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Your Next Inter-Road Adventure</h2>
+                <p class="text-xl text-gray-600 mb-6">
+                    Discover scenic routes, plan your stops, and embark on an unforgettable journey across the roads with our expert guidance.
+                </p>
+                <button class="bg-blue-800 text-white px-6 py-3 rounded-full font-medium hover:bg-blue-900 transition-colors shadow-md">
+                    Find A Route
+                </button>
             </div>
-            <div class="testimonial-card">
-                <p>"Being able to experience the destinations through the 'Immersive Destination Visualizations' was a game-changer. It helped us choose the perfect location and gave us a real feel for the beautiful sceneries before we even booked. Highly recommended!"</p>
-                <p>- David L.</p>
-            </div>
-            <div class="testimonial-card">
-                <p>"Fika Best Adventure made our trip seamless and memorable. The eco-friendly transport options were a huge plus for us!"</p>
-                <p>- Sarah K.</p>
-            </div>
-            <div class="testimonial-card">
-                <p>"The detailed itineraries saved us so much time and stress. We can't wait to book our next adventure!"</p>
-                <p>- Mark T.</p>
-            </div>
-        </div>
-        <div class="testimonial-navigation">
-        </div>
-    </section>
-
-    <!-- Move the Travel Section above the Community Section -->
-    <div class="travel-section">
-        <h2 class="section-title">Explore Your Next Adventure</h2>
-        <p class="section-subtitle">Discover unforgettable destinations, travel tips, and exciting itineraries.</p>
-        <div class="travel-cards">
-            <div class="card">
-                <h3 class="card-title">Destination Guides</h3>
-                <p class="card-description">Comprehensive guides to popular cities, hidden gems, and natural wonders.</p>
-                <a href="#" class="learn-more">View Guides</a>
-            </div>
-            <div class="card">
-                <h3 class="card-title">Adventure Planning</h3>
-                <p class="card-description">Tips for planning your perfect trip, from budget to packing essentials.</p>
-                <a href="#" class="learn-more">Get Started</a>
-            </div>
-            <div class="card">
-                <h3 class="card-title">Travel Stories & Blogs</h3>
-                <p class="card-description">Inspirational tales from fellow travelers and expert insights.</p>
-                <a href="#" class="learn-more">Read More</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Now place the Community Section after the Travel Section -->
-    <div class="community-section">
-        <h2 class="section-title">Connect with Fellow Travelers</h2>
-        <p class="section-subtitle">Share your adventures, find travel companions, and get inspired in our vibrant community.</p>
-        <a href="#" class="join-community-button">Join the Community</a>
-        <div class="community-image-container">
-            <img src="./assets/9.jpg" alt="Community of Travelers" class="community-graphic">
-        </div>
-    </div>
-
-    <section class="contact">
-        <h2>Contact Us</h2>
-        <div class="contact-form">
-            <form>
-                <input type="text" placeholder="Your Name">
-                <input type="email" placeholder="Your Email">
-                <input type="text" placeholder="Subject">
-                <label for="inquiry-type" class="visually-hidden">Inquiry Type</label>
-                <select id="inquiry-type" name="inquiry-type">
-                    <option value="">Select Inquiry Type</option>
-                    <option value="general">General Question</option>
-                    <option value="booking">Booking Inquiry</option>
-                    <option value="support">Support</option>
-                    <option value="partnership">Partnership</option>
-                </select>
-                <textarea placeholder="Your Message"></textarea>
-                <button type="submit">Send Message</button>
-            </form>
-        </div>
-        <div class="contact-info">
-            <h3>Our Information</h3>
-            <p>Email: luicykamau@gmail.com</p>
-            <p>Phone: +254 798345628</p>
-            <div class="social-links">
-                <a href="#" target="_blank"><img src="images/instagram-icon.png" alt="Instagram logo"></a>
-                <a href="#" target="_blank"><img src="images/twitter-icon.png" alt="Twitter logo"></a>
+            <div class="md:w-1/2 flex justify-center order-first md:order-last">
+                <img src="./assets/10.jpg" alt="Road Trip Illustration Graphic" class="rounded-xl shadow-lg max-w-xs w-full">
             </div>
         </div>
     </section>
 
-    <footer>
-        <div class="footer-content">
-            <p>© 2025 Fika Best Adventure. All rights reserved.</p>
-            <nav class="footer-nav">
-                <a href="/">Home</a> |
-                <a href="contact">Contact</a> |
-                <a href="services">Services</a> |
-                <a href="testimonial">Testimonial</a> |
-                <a href="login">Login</a> |
-                <a href="places">Places</a>
-            </nav>
+    <!-- SERVICES SECTION -->
+    <section class="services w-full flex justify-center py-16 px-4 bg-white" id="services">
+        <div class="w-full max-w-6xl">
+            <span class="block font-bold text-lg mb-2">Our Services</span>
+            <h2 class="text-3xl font-bold mb-1">Your Path To</h2>
+            <h2 class="text-3xl font-bold mb-4">Unforgettable Adventures</h2>
+            <p class="mb-8">Explore our curated services designed to enhance your travel experience.</p>
+            <div class="services-grid flex flex-wrap gap-6">
+                <!-- First Service -->
+                <div class="service-card flex-1 min-w-[320px] max-w-[48%] flex items-center relative min-h-[180px] rounded-xl overflow-hidden" style="background: url('./assets/road trip 2.jpeg') center/cover no-repeat;">
+                    <div class="service-content flex-1 bg-white/85 p-6 rounded-xl">
+                        <h3 class="font-bold text-lg mb-2">Personalized Itineraries</h3>
+                        <p class="mb-2">Custom-crafted travel plans designed to match your interests, budget, and desired pace. From solo adventures to family trips, we create unique experiences just for you.</p>
+                        <a href="#" class="learn-more text-blue-700 hover:underline">Learn More</a>
+                    </div>
+                </div>
+                <!-- Second Service -->
+                <div class="service-card flex-1 min-w-[320px] max-w-[48%] flex flex-row items-center gap-6">
+                    <div class="service-content flex-1">
+                        <h3 class="font-bold text-lg mb-1">Expert-Led</h3>
+                        <h4 class="font-bold text-md mb-2">Guided Tours</h4>
+                        <p class="mb-2">Join our experienced guides on immersive tours to iconic landmarks and hidden gems. Enjoy hassle-free travel with local insights and curated experiences.</p>
+                        <a href="#" class="learn-more text-blue-700 hover:underline">Learn More</a>
+                    </div>
+                </div>
+                <!-- Third Service -->
+                <div class="service-card flex-1 w-full flex flex-row items-center gap-6 mt-6">
+                    <div class="service-content flex-1">
+                        <h3 class="font-bold text-lg mb-2">Sustainable and Stylish Transportation</h3>
+                        <p class="mb-1">Enjoy eco-friendly travel with our modern, comfortable vehicles designed for every journey.</p>
+                        <p class="mb-1">Whether you’re exploring cities or scenic routes, our transportation options ensure a smooth, safe, and memorable ride.</p>
+                        <p class="mb-2">Choose sustainability without sacrificing style or convenience for your next adventure.</p>
+                        <a href="#" class="learn-more text-blue-700 hover:underline">Learn More</a>
+                    </div>
+                    <img src="./assets/friendly.jpeg" alt="Icon of a stylish, friendly vehicle"
+                        class="service-icon rounded-xl object-cover w-24 h-24">
+                </div>
+            </div>
         </div>
-    </footer>
+    </section>
 
-    <script src="luis.js"></script>
+    <!-- Increase the space between Services and Fika Best Adventure (the logo in nav) -->
+    <div style="height: 120px;"></div>
+
+    <!-- Add big space between Fika Best Adventure and Testimonials -->
+    <section class="testimonials w-full flex justify-center py-16 px-4 bg-gray-50" id="testimonials" style="position: relative; overflow: hidden;">
+        <div class="w-full max-w-6xl">
+            <div class="testimonial-slider flex gap-6 flex-nowrap overflow-hidden transition-transform duration-400" id="testimonial-slider">
+                <!-- Testimonial Section Header as a Card -->
+                <div class="testimonial-card flex-shrink-0 w-2/5 bg-gray-100 rounded-xl p-6 flex flex-col items-start justify-center">
+                    <span class="font-bold text-base mb-2">Testimonial</span>
+                    <h2 class="text-xl font-bold mb-2">What People Say</h2>
+                    <p class="text-gray-600">Discover how our services have transformed travel experiences for our clients.</p>
+                </div>
+                <!-- Existing testimonial cards -->
+                <div class="testimonial-card flex-shrink-0 w-2/5 bg-yellow-50 rounded-xl p-6">
+                    <p>"The 'Scenic Road Trip Curation' was absolutely fantastic! The route was breathtaking, and the smart planning ensured we had the perfect car for the winding roads and knew all the best viewpoints. It truly was an unforgettable journey through stunning landscapes."</p>
+                    <p class="mt-4 font-semibold">- Emily R.</p>
+                </div>
+                <div class="testimonial-card flex-shrink-0 w-2/5 bg-blue-50 rounded-xl p-6">
+                    <p>"Being able to experience the destinations through the 'Immersive Destination Visualizations' was a game-changer. It helped us choose the perfect location and gave us a real feel for the beautiful sceneries before we even booked. Highly recommended!"</p>
+                    <p class="mt-4 font-semibold">- David L.</p>
+                </div>
+                <div class="testimonial-card flex-shrink-0 w-2/5 bg-green-50 rounded-xl p-6">
+                    <p>"Fika Best Adventure made our trip seamless and memorable. The eco-friendly transport options were a huge plus for us!"</p>
+                    <p class="mt-4 font-semibold">- Sarah K.</p>
+                </div>
+                <div class="testimonial-card flex-shrink-0 w-2/5 bg-pink-50 rounded-xl p-6">
+                    <p>"The detailed itineraries saved us so much time and stress. We can't wait to book our next adventure!"</p>
+                    <p class="mt-4 font-semibold">- Mark T.</p>
+                </div>
+            </div>
+            <!-- Arrow Buttons (bottom left) -->
+            <div class="absolute bottom-4 left-4 z-10 flex gap-3">
+                <button id="testimonial-bottom-left" aria-label="Previous testimonial" class="bg-white rounded-full w-10 h-10 shadow flex items-center justify-center text-2xl">&#8592;</button>
+                <button id="testimonial-bottom-right" aria-label="Next testimonial" class="bg-white rounded-full w-10 h-10 shadow flex items-center justify-center text-2xl">&#8594;</button>
+            </div>
+            <div class="testimonial-navigation"></div>
+        </div>
+    </section>
+
+    <!-- TRAVEL SECTION -->
+    <section class="travel-section w-full flex justify-center py-16 px-4 bg-white">
+        <div class="w-full max-w-6xl">
+            <h2 class="section-title text-3xl font-bold mb-2">Explore Your Next Adventure</h2>
+            <p class="section-subtitle mb-8">Discover unforgettable destinations, travel tips, and exciting itineraries.</p>
+            <div class="travel-cards grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="card bg-gray-50 rounded-xl p-6 shadow">
+                    <h3 class="card-title font-bold text-lg mb-2">Destination Guides</h3>
+                    <p class="card-description mb-4">Comprehensive guides to popular cities, hidden gems, and natural wonders.</p>
+                    <a href="#" class="learn-more text-blue-700 hover:underline">View Guides</a>
+                </div>
+                <div class="card bg-gray-50 rounded-xl p-6 shadow">
+                    <h3 class="card-title font-bold text-lg mb-2">Adventure Planning</h3>
+                    <p class="card-description mb-4">Tips for planning your perfect trip, from budget to packing essentials.</p>
+                    <a href="#" class="learn-more text-blue-700 hover:underline">Get Started</a>
+                </div>
+                <div class="card bg-gray-50 rounded-xl p-6 shadow">
+                    <h3 class="card-title font-bold text-lg mb-2">Travel Stories & Blogs</h3>
+                    <p class="card-description mb-4">Inspirational tales from fellow travelers and expert insights.</p>
+                    <a href="#" class="learn-more text-blue-700 hover:underline">Read More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMMUNITY SECTION -->
+    <section class="community-section w-full flex justify-center py-16 px-4 bg-gray-50">
+        <div class="w-full max-w-6xl text-center">
+            <h2 class="section-title text-3xl font-bold mb-2">Connect with Fellow Travelers</h2>
+            <p class="section-subtitle mb-6">Share your adventures, find travel companions, and get inspired in our vibrant community.</p>
+            <a href="#" class="join-community-button inline-block bg-blue-700 text-white px-6 py-3 rounded-full font-semibold shadow hover:bg-blue-800 transition-colors mb-8">Join the Community</a>
+            <div class="community-image-container flex justify-center">
+                <img src="./assets/9.jpg" alt="Community of Travelers" class="community-graphic rounded-xl shadow-lg max-w-md w-full">
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="faq-section w-full flex justify-center py-16 px-4 bg-white">
+        <div class="w-full max-w-4xl bg-white p-8 rounded-xl shadow-lg flex flex-col md:flex-row gap-8">
+            <!-- FAQ Images -->
+            <div class="flex flex-col items-start gap-4 min-w-[220px]">
+                <img src="./assets/3.jpg" alt="Frequently Asked Questions" class="rounded-xl shadow-lg max-w-[220px] w-full">
+                <img src="./assets/destination icon.jpeg" alt="More FAQ Visual" class="rounded-xl shadow-lg max-w-[220px] w-full">
+                <img src="./assets/10.jpg" alt="Road Trip FAQ Visual" class="rounded-xl shadow-lg max-w-[220px] w-full">
+            </div>
+            <!-- FAQ Content -->
+            <div class="flex-1 min-w-[250px]">
+                <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center md:text-left">Frequently Asked Questions</h2>
+                <p class="text-gray-600 mb-10 text-center md:text-left">Find answers to common questions about booking, destinations, and your travel experience.</p>
+                <div class="space-y-4">
+                    <div class="accordion-item bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm">
+                        <button class="accordion-header flex justify-between items-center w-full p-5 text-lg font-medium text-gray-700 hover:bg-gray-50 focus:outline-none" onclick="toggleAccordion(this)">
+                            <span>How do I book a trip?</span>
+                            <span class="accordion-icon text-2xl leading-none text-gray-500">+</span>
+                        </button>
+                        <div class="accordion-content px-5 pb-5 text-gray-600">
+                            <p>You can easily book a trip by browsing our destinations, selecting your preferred dates and package, and following the steps in our secure online booking system. You'll receive a confirmation email shortly after booking.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm">
+                        <button class="accordion-header flex justify-between items-center w-full p-5 text-lg font-medium text-gray-700 hover:bg-gray-50 focus:outline-none" onclick="toggleAccordion(this)">
+                            <span>What payment methods are accepted?</span>
+                            <span class="accordion-icon text-2xl leading-none text-gray-500">+</span>
+                        </button>
+                        <div class="accordion-content px-5 pb-5 text-gray-600">
+                            <p>We accept all major credit cards (Visa, Mastercard, American Express, Discover), PayPal, and bank transfers for your convenience. Payment options may vary based on your location and the specific travel package.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm">
+                        <button class="accordion-header flex justify-between items-center w-full p-5 text-lg font-medium text-gray-700 hover:bg-gray-50 focus:outline-none" onclick="toggleAccordion(this)">
+                            <span>Can I change or cancel my booking?</span>
+                            <span class="accordion-icon text-2xl leading-none text-gray-500">+</span>
+                        </button>
+                        <div class="accordion-content px-5 pb-5 text-gray-600">
+                            <p>Changes and cancellations are subject to the terms and conditions of your specific booking. Please refer to your booking confirmation for details or contact our customer support team for assistance. Fees may apply depending on the timing of the change/cancellation.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm">
+                        <button class="accordion-header flex justify-between items-center w-full p-5 text-lg font-medium text-gray-700 hover:bg-gray-50 focus:outline-none" onclick="toggleAccordion(this)">
+                            <span>What travel insurance options are available?</span>
+                            <span class="accordion-icon text-2xl leading-none text-gray-500">+</span>
+                        </button>
+                        <div class="accordion-content px-5 pb-5 text-gray-600">
+                            <p>We highly recommend purchasing travel insurance. You can choose from various insurance plans during the booking process, covering aspects like trip cancellation, medical emergencies, and lost luggage. Learn more about our recommended insurance partners on our website.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm">
+                        <button class="accordion-header flex justify-between items-center w-full p-5 text-lg font-medium text-gray-700 hover:bg-gray-50 focus:outline-none" onclick="toggleAccordion(this)">
+                            <span>Do I need a visa for my destination?</span>
+                            <span class="accordion-icon text-2xl leading-none text-gray-500">+</span>
+                        </button>
+                        <div class="accordion-content px-5 pb-5 text-gray-600">
+                            <p>Visa requirements vary by destination and your nationality. We advise checking the embassy or consulate website of your destination country well in advance of your travel date. Our travel guides may also provide general information, but official sources are best.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm">
+                        <button class="accordion-header flex justify-between items-center w-full p-5 text-lg font-medium text-gray-700 hover:bg-gray-50 focus:outline-none" onclick="toggleAccordion(this)">
+                            <span>What should I pack for my trip?</span>
+                            <span class="accordion-icon text-2xl leading-none text-gray-500">+</span>
+                        </button>
+                        <div class="accordion-content px-5 pb-5 text-gray-600">
+                            <p>We provide detailed packing lists and tips for each of our travel packages to help you prepare. Don't forget your passport, essential documents, and any necessary medications!</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm">
+                        <button class="accordion-header flex justify-between items-center w-full p-5 text-lg font-medium text-gray-700 hover:bg-gray-50 focus:outline-none" onclick="toggleAccordion(this)">
+                            <span>Are the itineraries customizable?</span>
+                            <span class="accordion-icon text-2xl leading-none text-gray-500">+</span>
+                        </button>
+                        <div class="accordion-content px-5 pb-5 text-gray-600">
+                            <p>Absolutely! We understand that every traveler is unique. While we provide detailed itineraries, you have the flexibility to customize your trip according to your preferences. Our travel experts are also available to assist you in creating a personalized itinerary that suits your interests and needs.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm">
+                        <button class="accordion-header flex justify-between items-center w-full p-5 text-lg font-medium text-gray-700 hover:bg-gray-50 focus:outline-none" onclick="toggleAccordion(this)">
+                            <span>What should I do if I have a problem during the trip?</span>
+                            <span class="accordion-icon text-2xl leading-none text-gray-500">+</span>
+                        </button>
+                        <div class="accordion-content px-5 pb-5 text-gray-600">
+                            <p>If you encounter any problems during your trip, please contact our customer support immediately. We are available 24/7 to assist you. Additionally, it's important to have comprehensive travel insurance that covers various aspects of your trip, including medical emergencies and trip cancellations.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="w-full flex justify-center py-16 px-4 bg-gray-50">
+        <div class="w-full max-w-4xl bg-white rounded-xl shadow-lg p-8 md:p-12">
+            <div class="text-center mb-10">
+                <h2 class="text-4xl font-extrabold text-gray-900 mb-4">Your Next Adventure Awaits!</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Have questions about destinations, bookings, or custom itineraries? We're here to help you plan your perfect trip.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                <div class="lg:pr-8">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">Reach Out to Us:</h3>
+                    <div class="space-y-4 text-gray-700">
+                        <p class="flex items-center">
+                            <svg class="w-6 h-6 mr-3 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+                            </svg>
+                            Email: <a href="mailto:info@travelagency.com" class="text-blue-600 hover:underline ml-2">info@travelagency.com</a>
+                        </p>
+                        <p class="flex items-center">
+                            <svg class="w-6 h-6 mr-3 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.774a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
+                            </svg>
+                            Phone: <a href="tel:+1234567890" class="text-blue-600 hover:underline ml-2">+1 234-567-890</a>
+                        </p>
+                        <p class="flex items-center">
+                            <svg class="w-6 h-6 mr-3 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
+                            </svg>
+                            Address: 789 Explorer's Path, Adventure City, Global 12345
+                        </p>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">Send Us a Message</h3>
+                    <form class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                            <input type="text" id="name" name="name" class="form-input mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="Enter your name">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                            <input type="email" id="email" name="email" class="form-input mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="Enter your email">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Your Travel Inquiry</label>
+                            <textarea id="message" name="message" rows="5" class="form-input mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="Tell us about your travel plans or questions..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full flex justify-center py-3 px-6 border border-transparent rounded-md shadow-sm text-lg font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-150 ease-in-out">
+                            Send Inquiry
+                        </button>
+                    </form>
+                    <p class="text-center text-sm text-gray-500 mt-4">We typically respond within 24-48 hours to help plan your journey.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SCRIPTS (keep your JS as is) -->
+    <script>
+    function toggleAccordion(button) {
+        const item = button.parentElement;
+        const content = item.querySelector('.accordion-content');
+        const icon = button.querySelector('.accordion-icon');
+        const isOpen = content.style.display === 'block';
+
+        // Close all accordions
+        document.querySelectorAll('.accordion-content').forEach(function(el) {
+            el.style.display = 'none';
+        });
+        document.querySelectorAll('.accordion-icon').forEach(function(ic) {
+            ic.textContent = '+';
+        });
+
+        // Toggle current
+        if (!isOpen) {
+            content.style.display = 'block';
+            icon.textContent = '−';
+        }
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('.accordion-content').forEach(function(el) {
+            el.style.display = 'none';
+        });
+    });
+    </script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const slider = document.getElementById('testimonial-slider');
+        const cards = slider.querySelectorAll('.testimonial-card');
+        const leftBtn = document.getElementById('testimonial-bottom-left');
+        const rightBtn = document.getElementById('testimonial-bottom-right');
+        let current = 0;
+        const visibleCards = 2.5; // Show 2.5 cards
+
+        function showTestimonial(index) {
+            // Each card is 40% width + 24px gap except the last one
+            const card = cards[0];
+            const cardWidth = card.offsetWidth + 24;
+            slider.style.transform = `translateX(-${index * cardWidth}px)`;
+            slider.style.transition = 'transform 0.4s cubic-bezier(.4,2,.6,1)';
+        }
+
+        leftBtn.onclick = function() {
+            current = Math.max(0, current - 1);
+            showTestimonial(current);
+        };
+
+        rightBtn.onclick = function() {
+            current = Math.min(cards.length - Math.ceil(visibleCards), current + 1);
+            showTestimonial(current);
+        };
+
+        // Responsive: recalculate on resize
+        window.addEventListener('resize', () => showTestimonial(current));
+
+        // Initialize
+        showTestimonial(current);
+    });
+    </script>
 </body>
 </html>
