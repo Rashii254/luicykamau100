@@ -312,6 +312,8 @@ p {
 .btn-wrapper button:hover {
     background:purple;
 }
+
+
 /* Modern Services Section Styles */
 .services-section {
     background: #fafaf8;
@@ -345,18 +347,12 @@ p {
     margin-bottom: 0;
 }
 
-/* Style for the container holding the first two cards */
-.services-top-cards-row {
+.services-cards-row {
     display: flex;
-    justify-content: space-between; /* This pushes the first card left and the second right */
+    justify-content: center;
     gap: 38px;
     margin-top: 32px;
-    flex-wrap: wrap; /* Allows cards to wrap if they run out of horizontal space */
-    max-width: 750px; /* Adjust this value to control the spread of the two cards */
-    margin-left: auto;
-    margin-right: auto; /* Centers the row itself */
-    align-items: stretch; /* Ensures both cards have the same height */
-    margin-bottom: 38px; /* Space between the top row and the third card */
+    flex-wrap: wrap;
 }
 
 .service-card {
@@ -364,29 +360,23 @@ p {
     border-radius: 36px;
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
     padding: 38px 32px 32px 32px;
-    width: 320px; /* Fixed width for the first two cards */
-    flex: 0 0 auto; /* Prevent growth/shrinkage for consistent size */
+    max-width: 390px;
+    min-width: 260px;
+    flex: 1 1 320px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     position: relative;
     transition: box-shadow 0.2s, transform 0.2s;
-    min-height: 400px; /* Ensure consistent height for side-by-side cards */
 }
 
-/* Specific styles for the first card (left) */
 .service-card-left {
     background: #fbeee6;
 }
 
-/* Specific styles for the second card (right) */
 .service-card-right {
     background: #fff;
     border: 2px solid #fbeee6;
-}
-
-.service-card-content {
-    flex: 1; /* Allows content to take available space */
 }
 
 .service-card-content h3 {
@@ -415,7 +405,7 @@ p {
     background: #fff;
     color: #18403c;
     transition: background 0.2s, color 0.2s;
-    margin-top: auto; /* Pushes button to the bottom */
+    margin-top: auto;
 }
 
 .service-card-left .service-btn {
@@ -437,7 +427,7 @@ p {
 
 .service-btn:hover {
     background: #18403c;
-    color: palevioletred;
+    color:PI;
 }
 
 .service-btn.outline {
@@ -446,102 +436,48 @@ p {
     border: 2px solid #18403c;
 }
 
-/* The illustration for the first two cards (if any) */
 .service-card-illustration {
     position: absolute;
     bottom: 24px;
     right: 24px;
     pointer-events: none;
+    background-image: url('hae.png');
+    /* Replace with your image path */
+}
+
+.service-card-illustration img {
     width: 80px;
     height: 80px;
     object-fit: contain;
     opacity: 0.85;
-}
 
 /* Style for the third service card: content left, image right */
 .service-card-third {
-    background-color: #e6ffe6;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding: 30px;
-    border-radius: 36px;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
-
-    max-width: 750px; /* Match or slightly exceed the max-width of .services-top-cards-row */
-    width: 100%; /* Allows it to shrink on smaller screens */
-    margin: 0 auto;
-    margin-top: 38px;
-
-    min-height: 250px;
+    background-color: #e6ffe6; /* Lighter green */
+    flex-direction: row; /* Align content horizontally */
+    align-items: center; /* Vertically center content and image */
+    justify-content: space-between; /* Space out content and image */
 }
 
 /* Apply specific styles for content within the third card */
-.service-card-third .service-card-content {
-    flex: 1;
-    text-align: left;
-    padding-right: 20px;
+.service-card-third .service-content {
+    flex: 1; /* Allow content to take up available space */
+    text-align: left; /* Ensure text is left-aligned */
+    padding-right: 20px; /* Add spacing between text and image */
 }
 
 /* Override .service-image for the third card */
 .service-card-third .service-image {
-    position: static;
-    margin-left: 20px;
-    width: 180px;
+    position: static; /* Remove absolute positioning */
+    margin-left: auto; /* Push image to the right using auto margin in flex container */
+    width: 120px; /* Adjust width as needed */
     height: auto;
-    opacity: 1;
-    flex-shrink: 0;
+    opacity: 1; /* Ensure full opacity */
+    margin-top: 0; /* Reset top margin from original .service-image */
 }
 
 .service-card-third .service-btn {
-    align-self: flex-start;
-}
-
-
-/* Responsive adjustments */
-@media (max-width: 900px) { /* Adjust breakpoint as needed */
-    .services-top-cards-row {
-        /* flex-direction: column; <--- REMOVED THIS LINE */
-        align-items: center; /* Still centers them horizontally if they wrap */
-        max-width: none; /* Allow full width on smaller screens */
-        gap: 20px; /* Reduce gap when they might get squeezed */
-    }
-
-    .service-card {
-        width: 90%; /* Make cards take up more width if they wrap */
-        max-width: 400px; /* Limit max width for readability */
-        margin-bottom: 0; /* Remove extra margin, gap handles it */
-    }
-
-    .service-card-third {
-        flex-direction: column; /* This card will still stack its content and image */
-        padding: 24px;
-        width: 90%;
-        max-width: 400px;
-        margin-top: 20px;
-    }
-
-    .service-card-third .service-card-content {
-        padding-right: 0;
-        margin-bottom: 20px;
-    }
-
-    .service-card-third .service-image {
-        margin-left: 0;
-        margin-top: 15px;
-        width: 120px;
-    }
-}
-
-@media (max-width: 768px) {
-    .services-title {
-        font-size: 2rem;
-    }
-
-    .services-desc {
-        font-size: 1rem;
-    }
+    align-self: flex-start; /* Align button to the start of the content, if you had a .service-content wrapper */
 }
 
 /* Testimonials Section Modern Styles */
