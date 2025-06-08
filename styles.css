@@ -894,31 +894,27 @@ p {
 }
 
 
-/* --- FAQ Section --- */
+/* FAQ Section */
 .faq-section {
-    background: #fdfdfd; /* Keep light background */
-    padding: 64px 0 48px 0; /* REMOVED horizontal padding */
+    background: #fdfdfd;
+    padding: 64px 20px 48px 20px;
     display: flex;
     justify-content: center;
     align-items: flex-start;
     border-radius: 25px;
-    /* ADJUSTED: remove fixed width to allow .container to manage it */
-    margin: 0 auto 100px auto; /* Keep overall margin */
+    margin: 0 auto 100px auto;
+    width: 90%;
+    max-width: 1200px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    min-height: 100vh; /* Ensure it takes up at least half the viewport height */
-    box-sizing: border-box; /* Ensures padding is included in width/height */
+    min-height: 50vh; /* Ensure it takes up at least half the viewport height */
 }
 
 .faq-container {
-    /* This grid setup places the left content (text/image) on the left
-        and the FAQ questions on the right for larger screens. */
     display: grid;
     grid-template-columns: 1fr 1.5fr; /* Left section smaller, right larger */
     gap: 40px;
     width: 100%;
-    max-width: 1000px; /* KEPT: Internal max-width for FAQ content grid */
-    margin: 0 auto; /* ADDED: To center the FAQ content */
-    padding: 0 20px; /* ADDED: Horizontal padding for FAQ content */
+    max-width: 1000px;
 }
 
 .faq-left {
@@ -929,18 +925,21 @@ p {
 }
 
 .faq-left h2 {
-    color: #1F4037; /* Dark teal/greenish-blue from image */
-    font-size: 2.8rem; /* Slightly larger */
-    font-family: Georgia, 'Times New Roman', Times, serif; /* Serif font as in image */
+    color: #18403c;
+    font-size: 2.4rem;
     font-weight: bold;
     margin-bottom: 16px;
     line-height: 1.15;
 }
 
+.faq-left h2 span {
+    color: orange;
+}
+
 .faq-left p {
-    color: #555555; /* Slightly lighter grey for paragraph */
+    color: #3a4a4a;
     font-size: 1.08rem;
-    margin-bottom: 28px; /* Space before illustration */
+    margin-bottom: 28px;
 }
 
 .faq-illustration {
@@ -948,7 +947,7 @@ p {
     height: auto;
     border-radius: 20px;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
-    margin-top: 0; /* Remove top margin */
+    margin-top: 20px;
 }
 
 .faq-right {
@@ -964,8 +963,8 @@ p {
 
 .faq-card {
     background: #fff;
-    border-radius: 20px; /* More rounded corners */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04); /* Subtler shadow */
+    border-radius: 15px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
     margin-bottom: 15px;
     overflow: hidden;
     transition: all 0.3s ease;
@@ -975,11 +974,11 @@ p {
     width: 100%;
     background: none;
     border: none;
-    padding: 18px 25px; /* Slightly less vertical padding */
+    padding: 20px 25px;
     text-align: left;
     font-size: 1.1rem;
     font-weight: 600;
-    color: #1F4037; /* Match heading color */
+    color: #18403c;
     cursor: pointer;
     display: flex;
     justify-content: space-between;
@@ -992,23 +991,14 @@ p {
 }
 
 .faq-toggle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 32px; /* Fixed width */
-    height: 32px; /* Fixed height */
-    border-radius: 50%; /* Circular shape */
-    background-color: #e0f2f7; /* Very light background for toggle, from your original code, looks similar to image */
-    color: #1F4037; /* Dark teal/greenish-blue for plus sign */
-    font-size: 1.2rem; /* Size of the plus sign */
+    font-size: 1.5rem;
     font-weight: normal;
-    transition: transform 0.3s ease, background-color 0.2s;
+    transition: transform 0.3s ease;
+    color: orange;
 }
 
 .faq-question[aria-expanded="true"] .faq-toggle {
-    transform: rotate(45deg); /* Keep rotation for "minus" effect */
-    background-color: #1F4037; /* Dark teal/greenish-blue background when expanded */
-    color: #fff; /* White plus sign when expanded */
+    transform: rotate(45deg);
 }
 
 .faq-answer {
@@ -1026,7 +1016,21 @@ p {
     padding: 0 25px 20px 25px;
 }
 
-
+@media (max-width: 900px) {
+    .faq-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    .faq-left {
+        text-align: center;
+    }
+    .faq-left h2 {
+        font-size: 1.8rem;
+    }
+    .faq-illustration {
+        margin: 20px auto;
+    }
+}
 /* --- Contact Section Styles --- */
 .contact-section {
     background: #fafaf8;
