@@ -312,7 +312,7 @@ p {
 .btn-wrapper button:hover {
     background:purple;
 }
-/* Modern Services Section Styles */
+/* Modern Services Section Styles (Modified for Positioning) */
 .services-section {
     background: #fafaf8;
     padding: 64px 0 48px 0;
@@ -347,12 +347,13 @@ p {
 
 .services-cards-row {
     display: flex;
-    justify-content: center;
+    justify-content: center; /* Or use space-between or flex-start depending on desired spacing */
     gap: 38px;
     margin-top: 32px;
-    flex-wrap: wrap;
-    /* To ensure cards are aligned at the top */
-    align-items: stretch;
+    flex-wrap: wrap; /* Keep this for responsiveness */
+    max-width: 700px; /* Adjust this value to control the width of the row containing the first two cards */
+    margin-left: auto;
+    margin-right: auto; /* To center the row if needed */
 }
 
 .service-card {
@@ -360,18 +361,14 @@ p {
     border-radius: 36px;
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
     padding: 38px 32px 32px 32px;
-    /* Adjust max-width and min-width to control overall size.
-       Using a fixed width for simpler alignment for now, can be made responsive later. */
-    width: 320px; /* Adjust this based on desired visual size from the image */
-    /* Remove flex-basis to allow width to take precedence for fixed sizes */
-    flex: 0 0 auto; /* Prevent cards from growing/shrinking too much */
+    width: 320px; /* Adjust as needed */
+    flex: 0 0 auto; /* Prevent growth */
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     position: relative;
     transition: box-shadow 0.2s, transform 0.2s;
-    /* Ensure consistent height for all cards if content varies */
-    min-height: 400px; /* Adjust based on image, or let content define it and use align-items: stretch on parent */
+    min-height: 400px; /* Adjust as needed for visual consistency */
 }
 
 /* Specific styles for the first card (left) */
@@ -388,24 +385,30 @@ p {
 /* Style for the third service card: content left, image right */
 .service-card-third {
     background-color: #e6ffe6; /* Lighter green as in the image */
-    flex-direction: row; /* Align content horizontally */
-    align-items: center; /* Vertically center content and image */
-    justify-content: space-between; /* Space out content and image */
-    width: 680px; /* Make it wider to accommodate content and image side-by-side */
-    padding: 30px; /* Adjust padding for the side-by-side layout */
-    min-height: 250px; /* Adjust minimum height if needed for visual balance */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px;
+    margin-top: 38px; /* Add some space above the third card */
+    border-radius: 36px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+    width: calc(100% - 0px); /* Adjust the 0px if you have padding on the .services-section */
+    max-width: 1000px; /* Or a value that suits your overall layout */
+    margin-left: auto;
+    margin-right: auto;
+    flex-direction: row; /* Ensure content and image are side-by-side */
+    min-height: 250px; /* Adjust as needed */
 }
 
 .service-card-content {
-    /* For the first two cards, this is fine */
-    flex: 1; /* Allows content to take available space */
+    flex: 1;
 }
 
 /* Apply specific styles for content within the third card */
 .service-card-third .service-content-wrapper {
-    flex: 1; /* Allow content to take up available space */
-    text-align: left; /* Ensure text is left-aligned */
-    padding-right: 20px; /* Add spacing between text and image */
+    flex: 1;
+    text-align: left;
+    padding-right: 20px;
 }
 
 .service-card-content h3 {
@@ -420,7 +423,7 @@ p {
     color: #18403c;
     font-size: 1rem;
     margin-bottom: 28px;
-    min-height: 48px; /* Maintain text height for consistency */
+    min-height: 48px;
     text-align: left;
 }
 
@@ -434,7 +437,7 @@ p {
     background: #fff;
     color: #18403c;
     transition: background 0.2s, color 0.2s;
-    margin-top: auto; /* Pushes button to the bottom if content height varies */
+    margin-top: auto;
 }
 
 .service-card-left .service-btn {
@@ -471,7 +474,6 @@ p {
     bottom: 24px;
     right: 24px;
     pointer-events: none;
-    /* background-image: url('hae.png'); */ /* Use img tag in HTML for better control */
     width: 80px;
     height: 80px;
     object-fit: contain;
@@ -480,47 +482,48 @@ p {
 
 /* Styles for the image within the third card */
 .service-card-third .service-image {
-    position: static; /* Remove absolute positioning for side-by-side layout */
-    margin-left: 20px; /* Add some space between text and image */
-    width: 180px; /* Adjust width to match the image's appearance */
-    height: auto; /* Maintain aspect ratio */
-    opacity: 1; /* Ensure full opacity */
-    flex-shrink: 0; /* Prevent the image from shrinking */
+    position: static;
+    margin-left: 20px;
+    width: 180px;
+    height: auto;
+    opacity: 1;
+    flex-shrink: 0;
 }
 
 .service-card-third .service-btn {
-    /* Ensure the button aligns with the content in the third card */
     align-self: flex-start;
 }
 
 /* Responsive adjustments */
 @media (max-width: 1200px) {
     .services-cards-row {
-        flex-direction: column; /* Stack cards vertically on smaller screens */
-        align-items: center; /* Center stacked cards */
+        flex-direction: column;
+        align-items: center;
+        max-width: none; /* Allow full width on smaller screens */
     }
 
-    .service-card,
-    .service-card-third {
-        width: 90%; /* Make cards take up more width */
-        max-width: 500px; /* Limit max width for readability */
-        margin-bottom: 20px; /* Add space between stacked cards */
+    .service-card {
+        width: 90%;
+        max-width: 500px;
+        margin-bottom: 20px;
     }
 
     .service-card-third {
-        flex-direction: column; /* Stack content and image vertically within the third card */
-        padding: 24px; /* Adjust padding for stacked layout */
+        flex-direction: column;
+        padding: 24px;
+        width: 90%;
+        max-width: 500px;
     }
 
     .service-card-third .service-content-wrapper {
         padding-right: 0;
-        margin-bottom: 20px; /* Space between text and image when stacked */
+        margin-bottom: 20px;
     }
 
     .service-card-third .service-image {
         margin-left: 0;
-        margin-top: 15px; /* Add space when image is below content */
-        width: 120px; /* Adjust size for mobile */
+        margin-top: 15px;
+        width: 120px;
     }
 }
 
