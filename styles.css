@@ -313,99 +313,143 @@ p {
     background:purple;
 }
 
-/* --- Services Section --- */
+
+/* Modern Services Section Styles */
 .services-section {
-    padding: 80px 0; /* REMOVED horizontal padding */
-    background-color: var(--white);
+    background: #fafaf8;
+    padding: 64px 0 48px 0;
+    text-align: center;
 }
 
 .services-header {
-    text-align: center;
-    margin-bottom: 60px;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0 20px; /* ADDED horizontal padding for header */
+    margin-bottom: 38px;
 }
 
 .services-label {
-    color: var(--primary-blue);
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 0.9rem;
     display: block;
-    margin-bottom: 10px;
+    color: #18403c;
+    font-size: 0.92rem;
+    font-weight: 600;
+    margin-bottom: 14px;
 }
 
 .services-title {
-    font-size: 2.8rem;
-    margin-bottom: 20px;
+    color: orange;
+    font-size: 2.4rem;
+    font-weight: bold;
+    margin-bottom: 16px;
+    line-height: 1.15;
 }
 
 .services-desc {
-    font-size: 1.1rem;
-    color: var(--text-color);
+    color: #3a4a4a;
+    font-size: 1.08rem;
+    margin-bottom: 0;
 }
 
 .services-cards-row {
     display: flex;
-    flex-wrap: wrap; /* Allows items to wrap to the next line */
     justify-content: center;
-    gap: 30px;
-    max-width: 1200px; /* KEPT: Constrain width for centering */
-    margin: 0 auto; /* KEPT: Center the row */
-    padding: 0 20px; /* ADDED: Horizontal padding for the cards row */
+    gap: 38px;
+    margin-top: 32px;
+    flex-wrap: wrap;
 }
 
 .service-card {
-    background-color: var(--light-grey);
-    border-radius: 10px;
-    padding: 40px 30px;
-    box-shadow: var(--card-shadow);
-    text-align: left;
-    flex: 1; /* Allow cards to grow and shrink */
-    min-width: 280px; /* Minimum width before wrapping */
-    max-width: 380px; /* Limit max width for individual cards */
+    background: #fff;
+    border-radius: 36px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+    padding: 38px 32px 32px 32px;
+    max-width: 390px;
+    min-width: 260px;
+    flex: 1 1 320px;
     display: flex;
-    flex-direction: column; /* Default: content on top, image below */
-    justify-content: space-between;
-    position: relative; /* For image positioning */
-    overflow: hidden;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    transition: box-shadow 0.2s, transform 0.2s;
 }
 
-.service-card h3 {
-    font-size: 1.6rem;
-    margin-bottom: 15px;
-    color: var(--heading-color);
+.service-card-left {
+    background: #fbeee6;
 }
 
-.service-card p {
+.service-card-right {
+    background: #fff;
+    border: 2px solid #fbeee6;
+}
+
+.service-card-content h3 {
+    color: #18403c;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 18px;
+    text-align: left;
+}
+
+.service-card-content p {
+    color: #18403c;
     font-size: 1rem;
-    margin-bottom: 25px;
-    color: var(--text-color);
+    margin-bottom: 28px;
+    min-height: 48px;
+    text-align: left;
 }
 
 .service-btn {
-    background-color: var(--primary-blue);
-    color: var(--white);
-    padding: 10px 20px;
-    font-size: 0.95rem;
-    align-self: flex-start;
+    border: 2px solid #18403c;
+    border-radius: 22px;
+    padding: 10px 32px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    background: #fff;
+    color: #18403c;
+    transition: background 0.2s, color 0.2s;
+    margin-top: auto;
 }
 
-.service-image {
+.service-card-left .service-btn {
+    background: #fff;
+    border: 2px solid #18403c;
+    color: #18403c;
+}
+
+.service-card-right .service-btn {
+    background: #fff;
+    border: 2px solid #18403c;
+    color: #18403c;
+}
+
+.service-card-right .service-btn:hover {
+    background: #18403c;
+    color: #fff;
+}
+
+.service-btn:hover {
+    background: #18403c;
+    color:palevioletred;
+}
+
+.service-btn.outline {
+    background: #fff;
+    color: #18403c;
+    border: 2px solid #18403c;
+}
+
+.service-card-illustration {
     position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 150px; /* Adjust size as needed */
-    height: auto;
-    opacity: 0.8;
-    z-index: 1;
+    bottom: 24px;
+    right: 24px;
+    pointer-events: none;
+    background-image: url('hae.png');
+    /* Replace with your image path */
 }
 
-/* Specific card backgrounds/styles */
-.service-card-left { background-color: #e6f2ff; } /* Lighter blue */
-.service-card-right { background-color: #ffe6e6; } /* Lighter red */
+.service-card-illustration img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    opacity: 0.85;
 
 /* Style for the third service card: content left, image right */
 .service-card-third {
