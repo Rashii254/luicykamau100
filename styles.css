@@ -1,217 +1,233 @@
-/* Header Container */
-.header-container {
-    display: flex;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: white; /* White background as in image */
-    padding: 0;
-    margin: 0;
-    border-bottom: 1px solid #e0e0e0; /* Subtle border at the bottom */
-    align-items: center; /* Vertically center content */
-    z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Subtle shadow */
-    height: 70px; /* Adjust height to match image's perceived height */
-    min-height: 0;
+/* --- Global Styles & Resets --- */
+:root {
+    --primary-blue: #007bff;
+    --secondary-peach: #ff6b6b;
+    --dark-grey: #333;
+    --light-grey: #f4f4f4;
+    --white: #ffffff;
+    --text-color: #555;
+    --heading-color: #222;
+    --border-color: #ddd;
+    --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --button-hover-darken: brightness(0.9);
 }
 
-/* Hide header/titles on medium and small screens */
-@media (max-width: 1000px) {
-    .header-container {
-        display: none !important; /* Hide on screens <= 1000px */
-    }
-}
-
-/* Mobile Logo - Assuming this is for smaller screens, keep it hidden for desktop view */
-.mobile-logo {
-    display: none;
-}
-
+/* Universal Box-Sizing for better layout control */
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    font-family: 'Segoe UI', sans-serif; /* A clean sans-serif font */
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: #f8f8f8; /* Light background for the whole page */
+    scroll-behavior: smooth;
+    overflow-x: hidden; /* Prevent horizontal scrolling on the body */
 }
 
+a {
+    text-decoration: none;
+    color: var(--primary-blue);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Removes extra space below image */
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    filter: var(--button-hover-darken);
+}
+
+/* Base container for consistent width */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px; /* Keep horizontal padding */
+}
+
+/* Apply consistent padding and centering to all main sections */
+section {
+    padding: 80px 20px; /* Default vertical padding, horizontal controlled by .container below */
+    text-align: center;
+    overflow: hidden; /* Clear floats/prevent content overflow */
+
+    /* ADDED FOR CONSISTENT WIDTH */
+    width: 100%; /* Take full width of parent */
+    /* Remove max-width and margin-left/right if you apply .container directly to sections */
+    /* If sections have background colors, they still span full width, but their content aligns */
+}
+
+
+h1, h2, h3 {
+    color: var(--heading-color);
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 3.5rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+}
+
+h3 {
+    font-size: 1.8rem;
+}
+
+p {
+    margin-bottom: 20px;
+}
+
+/* --- Navbar --- */
 .navbar {
+    background-color: var(--dark-grey);
+    color: var(--white);
+    padding: 15px 0; /* Remove horizontal padding here, content is in .navbar-content */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--card-shadow);
+}
+
+.navbar-content {
     display: flex;
-    /* justify-content: center;  Removed this from navbar directly */
+    justify-content: space-between;
     align-items: center;
-    padding: 0 30px; /* Add some horizontal padding */
-    background-color: white; /* Match header background */
-    width: 100%; /* Occupy full width of header-container */
+    max-width: 1200px; /* KEPT: Specific for navbar internal content */
+    margin: 0 auto; /* KEPT: Specific for navbar internal content */
+    padding: 0 20px; /* ADDED: Horizontal padding for navbar content */
 }
 
-.nav-left {
-    display: flex;
-    gap: 40px; /* Space between "Home", "About", "Services" */
-    margin-right: auto; /* Pushes this group to the far left */
-}
-
+.nav-left,
 .nav-right {
     display: flex;
-    gap: 40px; /* Space between "Therapists", "Resources", "Contact" */
-    margin-left: auto; /* Pushes this group to the far right */
+    gap: 25px;
 }
 
 .nav-left a,
-.nav-right a,
-.mobile-menu a {
-    color: #2F4F4F; /* Dark green text color */
-    text-decoration: none;
-    padding: 8px 12px; /* Padding for click area */
-    transition: color 0.3s ease; /* Smooth color transition on hover */
-    font-size: 16px; /* Standard font size for navigation */
+.nav-right a {
+    color: var(--white);
+    font-weight: bold;
+    padding: 5px 0;
+    transition: color 0.3s ease;
 }
 
 .nav-left a:hover,
-.nav-right a:hover,
-.mobile-menu a:hover {
-    color: #008080; /* Slightly different shade on hover */
+.nav-right a:hover {
+    color: var(--primary-blue);
 }
 
 .nav-logo {
-    /* To perfectly center "Solus" between the two groups while they are pushed apart */
-    position: absolute; /* Take out of flow */
-    left: 50%; /* Start at the horizontal center of its parent */
-    transform: translateX(-50%); /* Move back by half its own width to truly center */
-    font-family: 'Times New Roman', serif; /* A classic serif font that might match the image */
-    font-size: 32px; /* Larger font size for the logo */
+    font-size: 1.8rem;
     font-weight: bold;
-    color: #2F4F4F; /* Dark green color for the logo */
-    white-space: nowrap; /* Prevent "Solus" from wrapping if it gets too narrow */
+    color: var(--primary-blue);
 }
 
 .hamburger {
-    display: none; /* Hidden on desktop */
+    display: none; /* Hidden by default on large screens */
     flex-direction: column;
     cursor: pointer;
-    gap: 4px;
+    gap: 6px;
 }
 
 .hamburger span {
+    display: block;
     width: 25px;
     height: 3px;
-    background: #2F4F4F; /* Dark color for hamburger lines */
-    border-radius: 2px;
+    background-color: var(--white);
+    transition: all 0.3s ease;
 }
 
 .mobile-menu {
     display: none; /* Hidden by default */
     flex-direction: column;
-    background-color: #2F4F4F; /* Dark background for mobile menu */
-    position: absolute;
-    top: 70px; /* Position below the header */
+    background-color: var(--dark-grey);
+    padding: 20px 0;
+    text-align: center;
     width: 100%;
+    position: absolute;
+    top: 100%;
     left: 0;
-    padding: 20px;
-    z-index: 99;
+    box-shadow: var(--card-shadow);
 }
 
 .mobile-menu a {
-    color: white; /* White links in mobile menu */
-    padding: 10px 0; /* Adjust padding for mobile links */
+    color: var(--white);
+    padding: 15px 0;
+    display: block;
+    transition: background-color 0.3s ease;
 }
 
-@media (max-width: 900px) {
-    .nav-left,
-    .nav-right,
-    .nav-logo { /* Hide all desktop nav and logo */
-        display: none;
-    }
-
-    .hamburger {
-        display: flex; /* Show hamburger */
-        position: absolute; /* Position hamburger to the right */
-        right: 30px; /* Adjust as needed */
-    }
-
-    /* Important: Re-enable the header on mobile if you want the hamburger to appear */
-    .header-container {
-        display: flex !important; /* Override the desktop 'display: none' */
-        justify-content: space-between; /* To position logo and hamburger */
-        padding: 0 30px; /* Add padding for mobile header */
-    }
-    
-    .header-container .navbar { /* Adjust navbar for mobile if needed, or remove */
-        justify-content: flex-end; /* Push hamburger to the right */
-    }
-
-    .mobile-menu.active {
-        display: flex; /* Show mobile menu when active */
-    }
-    
-    /* On mobile, you might want a simpler logo if Solus is hidden */
-    .header-container .nav-logo.mobile { /* Assuming you add a 'mobile' class to a separate logo */
-        display: block; /* Show mobile logo */
-        position: static; /* Take out of absolute positioning */
-        transform: none; /* Remove transform */
-        margin: 0; /* Remove specific margins */
-        order: -1; /* Place it at the beginning of the flex container */
-    }
+.mobile-menu a:hover {
+    background-color: #444;
 }
 
-/* Hero Section */
+/* Toggle for hamburger animation */
+.hamburger.is-active span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+.hamburger.is-active span:nth-child(2) {
+    opacity: 0;
+}
+.hamburger.is-active span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
 
+/* --- Hero Section --- */
 .hero {
-    background-image: url('assets/11.jpg');
-    /* Replace with your image path */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    min-height: 60vh;
-    /* Adjust height as needed */
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./assets/11.jpg') no-repeat center center/cover; /* Placeholder background */
+    color: var(--white);
+    height: 80vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    /* Add padding on all sides */
-    padding: 40px 40px 40px 40px;
-    border-radius: 25px;
-    margin: 20px auto 100px auto;
-    width: 60%;
-    box-sizing: border-box;
+    text-align: center;
+    /* REMOVED: padding: 20px; - now handled by hero-content > .container */
 }
 
-.hero-content h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-    letter-spacing: 2px;
-    color: black;
+.hero-content {
+    max-width: 800px; /* KEPT: Specific max-width for hero text */
+    /* ADDED: to align hero content with the main container */
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-.hero-content p {
-    font-size: 1.2rem;
-    margin-bottom: 18px;
-    color: blue;
-    align-items: left;
-    padding-left: 120px;
+.hero h1 {
+    font-size: 4.5rem;
+    margin-bottom: 25px;
+    color: var(--white);
 }
 
-.bln-wrapper {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
+.hero p {
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+    color: var(--white);
 }
 
 .bln-wrapper button {
-    background: #ff9800;
-    color: #d32e2e;
-    border: none;
-    padding: 12px 28px;
-    border-radius: 24px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.2s;
-}
-
-.bln-wrapper button:hover {
-    background: #e65100;
-    color: #fff;
+    background-color: var(--primary-blue);
+    color: var(--white);
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    border-radius: 50px;
 }
 /* About Section */
 .about {
