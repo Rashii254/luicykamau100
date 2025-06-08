@@ -1,56 +1,31 @@
-/* --- Global Styles & Resets --- */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: 'Segoe UI', Arial, sans-serif;
-    background: skyblue;
-    color: #222;
-    line-height: 1.6;
-}
-
 /* Header Container */
 .header-container {
-    display: flex; /* Changed from 'displa' */
+    display: flex;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background-color: white; /* Changed to white background */
+    background-color: white; /* White background as in image */
     padding: 0;
     margin: 0;
-    border-bottom: 1px solid #e0e0e0;
-    /* color: white; Removed as text will be dark */
-    justify-content: center; /* Center the nav */
-    align-items: center;
+    border-bottom: 1px solid #e0e0e0; /* Subtle border at the bottom */
+    align-items: center; /* Vertically center content */
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    height: 70px; /* Increased height for better appearance */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+    height: 70px; /* Adjust height to match image's perceived height */
     min-height: 0;
 }
 
 /* Hide header/titles on medium and small screens */
 @media (max-width: 1000px) {
     .header-container {
-        display: none !important;
+        display: none !important; /* Hide on screens <= 1000px */
     }
 }
 
-/* Mobile Logo - Keep if you have a separate mobile logo */
+/* Mobile Logo - Assuming this is for smaller screens, keep it hidden for desktop view */
 .mobile-logo {
-    display: none; /* Hide if not needed for desktop */
-}
-
-.mobile-logo .logo {
-    height: 30px;
-    width: auto;
+    display: none;
 }
 
 * {
@@ -60,33 +35,28 @@ body {
 }
 
 body {
-    font-family: 'Segoe UI', sans-serif; /* Keep your preferred font */
+    font-family: 'Segoe UI', sans-serif; /* A clean sans-serif font */
 }
 
 .navbar {
     display: flex;
-    justify-content: center; /* Center the entire navbar content */
+    /* justify-content: center;  Removed this from navbar directly */
     align-items: center;
-    padding: 0 30px; /* Adjust padding as needed */
+    padding: 0 30px; /* Add some horizontal padding */
     background-color: white; /* Match header background */
-    color: #2F4F4F; /* Dark green color for text (similar to image) */
-    position: relative;
-    width: 100%; /* Ensure navbar takes full width for centering */
-}
-
-.nav-left,
-.nav-right {
-    display: flex;
-    gap: 40px; /* Increased gap for more spacing as in the image */
-    align-items: center;
+    width: 100%; /* Occupy full width of header-container */
 }
 
 .nav-left {
-    margin-right: auto; /* Push .nav-left to the left */
+    display: flex;
+    gap: 40px; /* Space between "Home", "About", "Services" */
+    margin-right: auto; /* Pushes this group to the far left */
 }
 
 .nav-right {
-    margin-left: auto; /* Push .nav-right to the right */
+    display: flex;
+    gap: 40px; /* Space between "Therapists", "Resources", "Contact" */
+    margin-left: auto; /* Pushes this group to the far right */
 }
 
 .nav-left a,
@@ -94,29 +64,31 @@ body {
 .mobile-menu a {
     color: #2F4F4F; /* Dark green text color */
     text-decoration: none;
-    padding: 8px 12px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    font-weight: normal; /* Adjust as needed */
+    padding: 8px 12px; /* Padding for click area */
+    transition: color 0.3s ease; /* Smooth color transition on hover */
+    font-size: 16px; /* Standard font size for navigation */
 }
 
 .nav-left a:hover,
 .nav-right a:hover,
 .mobile-menu a:hover {
-    background-color: transparent; /* No background change on hover for the image's style */
-    color: #008080; /* A slightly different shade on hover for visual feedback */
-    border-radius: 4px; /* Keep if you like subtle rounding */
+    color: #008080; /* Slightly different shade on hover */
 }
 
 .nav-logo {
-    font-family: 'Georgia', serif; /* Or a font that looks similar to the image */
+    /* To perfectly center "Solus" between the two groups while they are pushed apart */
+    position: absolute; /* Take out of flow */
+    left: 50%; /* Start at the horizontal center of its parent */
+    transform: translateX(-50%); /* Move back by half its own width to truly center */
+    font-family: 'Times New Roman', serif; /* A classic serif font that might match the image */
     font-size: 32px; /* Larger font size for the logo */
     font-weight: bold;
     color: #2F4F4F; /* Dark green color for the logo */
-    margin: 0 60px; /* Adjust margin around logo to push nav items further */
+    white-space: nowrap; /* Prevent "Solus" from wrapping if it gets too narrow */
 }
 
 .hamburger {
-    display: none;
+    display: none; /* Hidden on desktop */
     flex-direction: column;
     cursor: pointer;
     gap: 4px;
@@ -130,44 +102,57 @@ body {
 }
 
 .mobile-menu {
-    display: none;
+    display: none; /* Hidden by default */
     flex-direction: column;
     background-color: #2F4F4F; /* Dark background for mobile menu */
     position: absolute;
-    top: 70px; /* Position below the header height */
+    top: 70px; /* Position below the header */
     width: 100%;
     left: 0;
     padding: 20px;
     z-index: 99;
 }
 
+.mobile-menu a {
+    color: white; /* White links in mobile menu */
+    padding: 10px 0; /* Adjust padding for mobile links */
+}
+
 @media (max-width: 900px) {
     .nav-left,
-    .nav-right {
+    .nav-right,
+    .nav-logo { /* Hide all desktop nav and logo */
         display: none;
     }
 
     .hamburger {
-        display: flex;
+        display: flex; /* Show hamburger */
         position: absolute; /* Position hamburger to the right */
         right: 30px; /* Adjust as needed */
     }
 
-    .nav-logo {
-        margin: 0 auto; /* Center logo on smaller screens */
+    /* Important: Re-enable the header on mobile if you want the hamburger to appear */
+    .header-container {
+        display: flex !important; /* Override the desktop 'display: none' */
+        justify-content: space-between; /* To position logo and hamburger */
+        padding: 0 30px; /* Add padding for mobile header */
     }
-
-    .mobile-menu {
-        display: none;
+    
+    .header-container .navbar { /* Adjust navbar for mobile if needed, or remove */
+        justify-content: flex-end; /* Push hamburger to the right */
     }
 
     .mobile-menu.active {
-        display: flex;
+        display: flex; /* Show mobile menu when active */
     }
-
-    /* Show the header container on smaller screens if you want the mobile menu to work */
-    .header-container {
-        display: flex !important; /* Override the display: none for mobile */
+    
+    /* On mobile, you might want a simpler logo if Solus is hidden */
+    .header-container .nav-logo.mobile { /* Assuming you add a 'mobile' class to a separate logo */
+        display: block; /* Show mobile logo */
+        position: static; /* Take out of absolute positioning */
+        transform: none; /* Remove transform */
+        margin: 0; /* Remove specific margins */
+        order: -1; /* Place it at the beginning of the flex container */
     }
 }
 
