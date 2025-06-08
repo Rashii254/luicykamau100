@@ -17,25 +17,22 @@ body {
 }
 
 /* Header Container */
-.header-container {displa flex;
+.header-container {
+    display: flex; /* Changed from 'displa' */
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background: none;
-    /* Remove background color */
+    background-color: white; /* Changed to white background */
     padding: 0;
     margin: 0;
     border-bottom: 1px solid #e0e0e0;
-    color: white;
-    display: flex;
-    justify-content: center;
-    /* Center the nav */
+    /* color: white; Removed as text will be dark */
+    justify-content: center; /* Center the nav */
     align-items: center;
     z-index: 1000;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    height: 28px;
-    /* Further reduced height */
+    height: 70px; /* Increased height for better appearance */
     min-height: 0;
 }
 
@@ -46,9 +43,9 @@ body {
     }
 }
 
-/* Mobile Logo */
+/* Mobile Logo - Keep if you have a separate mobile logo */
 .mobile-logo {
-    display: block;
+    display: none; /* Hide if not needed for desktop */
 }
 
 .mobile-logo .logo {
@@ -63,46 +60,59 @@ body {
 }
 
 body {
-    font-family: 'Segoe UI', sans-serif;
+    font-family: 'Segoe UI', sans-serif; /* Keep your preferred font */
 }
 
 .navbar {
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* Center the entire navbar content */
     align-items: center;
-    padding: 12px 30px;
-    background-color:purple;
-    color: white;
+    padding: 0 30px; /* Adjust padding as needed */
+    background-color: white; /* Match header background */
+    color: #2F4F4F; /* Dark green color for text (similar to image) */
     position: relative;
-    padding-left: 20px;
+    width: 100%; /* Ensure navbar takes full width for centering */
 }
 
 .nav-left,
 .nav-right {
     display: flex;
-    gap: 20px;
+    gap: 40px; /* Increased gap for more spacing as in the image */
+    align-items: center;
+}
+
+.nav-left {
+    margin-right: auto; /* Push .nav-left to the left */
+}
+
+.nav-right {
+    margin-left: auto; /* Push .nav-right to the right */
 }
 
 .nav-left a,
 .nav-right a,
 .mobile-menu a {
-    color: white;
+    color: #2F4F4F; /* Dark green text color */
     text-decoration: none;
     padding: 8px 12px;
     transition: background-color 0.3s ease, color 0.3s ease;
+    font-weight: normal; /* Adjust as needed */
 }
 
 .nav-left a:hover,
 .nav-right a:hover,
 .mobile-menu a:hover {
-    background-color: white;
-    color: #004080;
-    border-radius: 4px;
+    background-color: transparent; /* No background change on hover for the image's style */
+    color: #008080; /* A slightly different shade on hover for visual feedback */
+    border-radius: 4px; /* Keep if you like subtle rounding */
 }
 
 .nav-logo {
-    font-size: 24px;
+    font-family: 'Georgia', serif; /* Or a font that looks similar to the image */
+    font-size: 32px; /* Larger font size for the logo */
     font-weight: bold;
+    color: #2F4F4F; /* Dark green color for the logo */
+    margin: 0 60px; /* Adjust margin around logo to push nav items further */
 }
 
 .hamburger {
@@ -115,16 +125,16 @@ body {
 .hamburger span {
     width: 25px;
     height: 3px;
-    background: white;
+    background: #2F4F4F; /* Dark color for hamburger lines */
     border-radius: 2px;
 }
 
 .mobile-menu {
     display: none;
     flex-direction: column;
-    background-color: #004080;
+    background-color: #2F4F4F; /* Dark background for mobile menu */
     position: absolute;
-    top: 60px;
+    top: 70px; /* Position below the header height */
     width: 100%;
     left: 0;
     padding: 20px;
@@ -132,7 +142,6 @@ body {
 }
 
 @media (max-width: 900px) {
-
     .nav-left,
     .nav-right {
         display: none;
@@ -140,6 +149,12 @@ body {
 
     .hamburger {
         display: flex;
+        position: absolute; /* Position hamburger to the right */
+        right: 30px; /* Adjust as needed */
+    }
+
+    .nav-logo {
+        margin: 0 auto; /* Center logo on smaller screens */
     }
 
     .mobile-menu {
@@ -150,8 +165,9 @@ body {
         display: flex;
     }
 
-    .nav-logo {
-        margin: 0 auto;
+    /* Show the header container on smaller screens if you want the mobile menu to work */
+    .header-container {
+        display: flex !important; /* Override the display: none for mobile */
     }
 }
 
