@@ -271,7 +271,7 @@ p {
     top: -40px;
     width: 180px;
     height: 180px;
-    background: url('./assets/friendly.jpeg') no-repeat left top/contain;
+    background: url('./assets/friendly.jpeg');
 }
 
 .hero-card::after {
@@ -279,7 +279,7 @@ p {
     top: -40px;
     width: 180px;
     height: 180px;
-    background: url('./assets/friendly.jpeg') no-repeat right top/contain;
+    background: url('./assets/friendly.jpeg'); 
 }
 
 /* --- About Section Modern Card --- */
