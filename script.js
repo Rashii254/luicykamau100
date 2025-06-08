@@ -50,11 +50,12 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    // FAQ DATA AND ACCORDION FUNCTIONALITY
+    // --- FAQ DATA AND ACCORDION FUNCTIONALITY ---
+    // You can edit/add your FAQ questions and answers here:
     const faqs = [
         {
             question: "How do I plan a road trip through your website?",
-            answer: "You can plan a road trip by Browse our routes or tour packages, selecting your preferred options, and following our planning guides. Our team is also available to assist you.",
+            answer: "You can plan a road trip by browsing our routes or tour packages, selecting your preferred options, and following our planning guides. Our team is also available to assist you.",
         },
         {
             question: "What payment methods do you accept?",
@@ -84,9 +85,10 @@ document.addEventListener("DOMContentLoaded", function () {
         faqList.innerHTML = ""; // Clear existing content if any
         faqs.forEach((faq) => {
             const li = document.createElement("li");
+            li.className = "faq-card";
             li.innerHTML = `
                 <button class="faq-question" aria-expanded="false">
-                    <strong>${faq.question}</strong>
+                    ${faq.question}
                     <span class="faq-toggle">+</span>
                 </button>
                 <div class="faq-answer">
@@ -96,23 +98,34 @@ document.addEventListener("DOMContentLoaded", function () {
             faqList.appendChild(li);
         });
 
-        // Attach click listeners AFTER FAQ is populated
+        // Accordion logic: only one open at a time, all closed on load
         document.querySelectorAll(".faq-question").forEach((btn) => {
+            // Hide all answers on load
+            btn.setAttribute("aria-expanded", "false");
+            if (btn.nextElementSibling) {
+                btn.nextElementSibling.style.maxHeight = "0";
+                btn.nextElementSibling.style.padding = "0 25px 0 25px";
+            }
+
             btn.addEventListener("click", function () {
                 const expanded = this.getAttribute("aria-expanded") === "true";
                 // Close all
                 document.querySelectorAll(".faq-question").forEach((b) => {
                     b.setAttribute("aria-expanded", "false");
-                    b.nextElementSibling.style.maxHeight = "0"; // Use max-height for smooth collapse
-                    b.nextElementSibling.style.padding = "0 25px 0 25px"; // Reset padding
+                    if (b.nextElementSibling) {
+                        b.nextElementSibling.style.maxHeight = "0";
+                        b.nextElementSibling.style.padding = "0 25px 0 25px";
+                    }
                 });
 
                 // Open this one if it was not already open
                 if (!expanded) {
                     this.setAttribute("aria-expanded", "true");
                     const answerDiv = this.nextElementSibling;
-                    answerDiv.style.maxHeight = answerDiv.scrollHeight + "px"; // Set actual height
-                    answerDiv.style.padding = "0 25px 20px 25px"; // Restore padding
+                    if (answerDiv) {
+                        answerDiv.style.maxHeight = answerDiv.scrollHeight + "px";
+                        answerDiv.style.padding = "0 25px 20px 25px";
+                    }
                 }
             });
         });
@@ -143,9 +156,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const mobileMenu = document.querySelector(".mobile-menu"); // Select by class
 
     if (hamburger && mobileMenu) {
+        // Hide menu on load
+        mobileMenu.classList.add('hide');
+
         hamburger.addEventListener("click", function () {
             this.classList.toggle("is-active"); // Use 'is-active' from your CSS
             mobileMenu.classList.toggle("is-active"); // Use 'is-active' from your CSS
+            mobileMenu.classList.toggle('hide'); // Toggle hide class
 
             // Optional: Add/remove aria-expanded for accessibility
             const isExpanded = this.classList.contains("is-active");
@@ -156,6 +173,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 link.addEventListener('click', () => {
                     hamburger.classList.remove('is-active');
                     mobileMenu.classList.remove('is-active');
+                    mobileMenu.classList.add('hide'); // Ensure menu is hidden
                     hamburger.setAttribute("aria-expanded", false);
                 }, { once: true }); // Use { once: true } to prevent multiple listeners
             });
@@ -173,6 +191,7 @@ document.addEventListener("DOMContentLoaded", function () {
             ) {
                 hamburger.classList.remove('is-active');
                 mobileMenu.classList.remove('is-active');
+                mobileMenu.classList.add('hide'); // Ensure menu is hidden
                 hamburger.setAttribute("aria-expanded", false);
             }
         });
