@@ -1,233 +1,216 @@
-/* --- Global Styles & Resets --- */
-:root {
-    --primary-blue: #007bff;
-    --secondary-peach: #ff6b6b;
-    --dark-grey: #333;
-    --light-grey: #f4f4f4;
-    --white: #ffffff;
-    --text-color: #555;
-    --heading-color: #222;
-    --border-color: #ddd;
-    --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    --button-hover-darken: brightness(0.9);
-}
-
-/* Universal Box-Sizing for better layout control */
+/* Reset some default styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
-    color: var(--text-color);
-    background-color: #f8f8f8; /* Light background for the whole page */
+html {
     scroll-behavior: smooth;
-    overflow-x: hidden; /* Prevent horizontal scrolling on the body */
 }
 
-a {
-    text-decoration: none;
-    color: var(--primary-blue);
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f7f7f7;
+    color: #222;
+    line-height: 1.6;
 }
 
-img {
-    max-width: 100%;
-    height: auto;
-    display: block; /* Removes extra space below image */
-}
-
-button {
-    cursor: pointer;
-    border: none;
-    padding: 12px 25px;
-    border-radius: 5px;
-    font-size: 1rem;
-    font-weight: bold;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-button:hover {
-    transform: translateY(-2px);
-    filter: var(--button-hover-darken);
-}
-
-/* Base container for consistent width */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px; /* Keep horizontal padding */
-}
-
-/* Apply consistent padding and centering to all main sections */
-section {
-    padding: 80px 20px; /* Default vertical padding, horizontal controlled by .container below */
-    text-align: center;
-    overflow: hidden; /* Clear floats/prevent content overflow */
-
-    /* ADDED FOR CONSISTENT WIDTH */
-    width: 100%; /* Take full width of parent */
-    /* Remove max-width and margin-left/right if you apply .container directly to sections */
-    /* If sections have background colors, they still span full width, but their content aligns */
-}
-
-
-h1, h2, h3 {
-    color: var(--heading-color);
-    margin-bottom: 20px;
-    line-height: 1.2;
-}
-
-h1 {
-    font-size: 3.5rem;
-}
-
-h2 {
-    font-size: 2.5rem;
-}
-
-h3 {
-    font-size: 1.8rem;
-}
-
-p {
-    margin-bottom: 20px;
-}
-
-/* --- Navbar --- */
-.navbar {
-    background-color: var(--dark-grey);
-    color: var(--white);
-    padding: 15px 0; /* Remove horizontal padding here, content is in .navbar-content */
-    position: sticky;
+/* Header Container */
+.header-container {
+    position: fixed;
     top: 0;
+    left: 0;
+    width: 100%;
+    background: none;
+    /* Remove background color */
+    padding: 0;
+    margin: 0;
+    border-bottom: 1px solid #e0e0e0;
+    color: white;
+    display: flex;
+    justify-content: center;
+    /* Center the nav */
+    align-items: center;
     z-index: 1000;
-    box-shadow: var(--card-shadow);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    height: 28px;
+    /* Further reduced height */
+    min-height: 0;
 }
 
-.navbar-content {
+/* Hide header/titles on medium and small screens */
+@media (max-width: 1000px) {
+    .header-container {
+        display: none !important;
+    }
+}
+
+/* Mobile Logo */
+.mobile-logo {
+    display: block;
+}
+
+.mobile-logo .logo {
+    height: 30px;
+    width: auto;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px; /* KEPT: Specific for navbar internal content */
-    margin: 0 auto; /* KEPT: Specific for navbar internal content */
-    padding: 0 20px; /* ADDED: Horizontal padding for navbar content */
+    padding: 12px 30px;
+    background-color:purple;
+    color: white;
+    position: relative;
+    padding-left: 20px;
 }
 
 .nav-left,
 .nav-right {
     display: flex;
-    gap: 25px;
+    gap: 20px;
 }
 
 .nav-left a,
-.nav-right a {
-    color: var(--white);
-    font-weight: bold;
-    padding: 5px 0;
-    transition: color 0.3s ease;
+.nav-right a,
+.mobile-menu a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .nav-left a:hover,
-.nav-right a:hover {
-    color: var(--primary-blue);
+.nav-right a:hover,
+.mobile-menu a:hover {
+    background-color: white;
+    color: #004080;
+    border-radius: 4px;
 }
 
 .nav-logo {
-    font-size: 1.8rem;
+    font-size: 24px;
     font-weight: bold;
-    color: var(--primary-blue);
 }
 
 .hamburger {
-    display: none; /* Hidden by default on large screens */
+    display: none;
     flex-direction: column;
     cursor: pointer;
-    gap: 6px;
+    gap: 4px;
 }
 
 .hamburger span {
-    display: block;
     width: 25px;
     height: 3px;
-    background-color: var(--white);
-    transition: all 0.3s ease;
+    background: white;
+    border-radius: 2px;
 }
 
 .mobile-menu {
-    display: none; /* Hidden by default */
+    display: none;
     flex-direction: column;
-    background-color: var(--dark-grey);
-    padding: 20px 0;
-    text-align: center;
-    width: 100%;
+    background-color: #004080;
     position: absolute;
-    top: 100%;
+    top: 60px;
+    width: 100%;
     left: 0;
-    box-shadow: var(--card-shadow);
+    padding: 20px;
+    z-index: 99;
 }
 
-.mobile-menu a {
-    color: var(--white);
-    padding: 15px 0;
-    display: block;
-    transition: background-color 0.3s ease;
+@media (max-width: 900px) {
+
+    .nav-left,
+    .nav-right {
+        display: none;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .mobile-menu {
+        display: none;
+    }
+
+    .mobile-menu.active {
+        display: flex;
+    }
+
+    .nav-logo {
+        margin: 0 auto;
+    }
 }
 
-.mobile-menu a:hover {
-    background-color: #444;
-}
+/* Hero Section */
 
-/* Toggle for hamburger animation */
-.hamburger.is-active span:nth-child(1) {
-    transform: translateY(9px) rotate(45deg);
-}
-.hamburger.is-active span:nth-child(2) {
-    opacity: 0;
-}
-.hamburger.is-active span:nth-child(3) {
-    transform: translateY(-9px) rotate(-45deg);
-}
-
-/* --- Hero Section --- */
 .hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./assets/11.jpg') no-repeat center center/cover; /* Placeholder background */
-    color: var(--white);
-    height: 80vh;
+    background-image: url('assets/11.jpg');
+    /* Replace with your image path */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 60vh;
+    /* Adjust height as needed */
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    /* REMOVED: padding: 20px; - now handled by hero-content > .container */
+    /* Add padding on all sides */
+    padding: 40px 40px 40px 40px;
+    border-radius: 25px;
+    margin: 20px auto 100px auto;
+    width: 60%;
+    box-sizing: border-box;
 }
 
-.hero-content {
-    max-width: 800px; /* KEPT: Specific max-width for hero text */
-    /* ADDED: to align hero content with the main container */
-    margin: 0 auto;
-    padding: 0 20px;
+.hero-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    color: black;
 }
 
-.hero h1 {
-    font-size: 4.5rem;
-    margin-bottom: 25px;
-    color: var(--white);
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 18px;
+    color: blue;
+    align-items: left;
+    padding-left: 120px;
 }
 
-.hero p {
-    font-size: 1.5rem;
-    margin-bottom: 40px;
-    color: var(--white);
+.bln-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
 }
 
 .bln-wrapper button {
-    background-color: var(--primary-blue);
-    color: var(--white);
-    padding: 15px 40px;
-    font-size: 1.2rem;
-    border-radius: 50px;
+    background: #ff9800;
+    color: #d32e2e;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 24px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.bln-wrapper button:hover {
+    background: #e65100;
+    color: #fff;
 }
 /* About Section */
 .about {
