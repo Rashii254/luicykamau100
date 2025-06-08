@@ -272,7 +272,7 @@ p {
 .about-card-content h2 {
     text-align: start;
     font-size: 1.5rem;
-    color: #ff9800;
+    color:purple;
     margin-bottom: 12px;
 
 }
@@ -297,7 +297,7 @@ p {
 }
 
 .btn-wrapper button {
-    background: #ff9800;
+    background:purple;
     color: #fff;
     border: none;
     padding: 12px 28px;
@@ -310,7 +310,7 @@ p {
 }
 
 .btn-wrapper button:hover {
-    background: #e65100;
+    background:purple;
 }
 
 /* --- Services Section --- */
@@ -472,7 +472,7 @@ p {
 }
 
 .testimonials-title {
-    color: orange;
+    color: purple;
     font-size: 2rem;
     font-weight: bold;
     margin-bottom: 16px;
@@ -499,7 +499,7 @@ p {
     border-radius: 50%;
     border: none;
     background: #fff;
-    color: #ff9800;
+    color:purple;
     font-size: 1.5rem;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
     cursor: pointer;
@@ -511,8 +511,8 @@ p {
 
 .scroll-btn:hover,
 .testimonial-arrow:hover {
-    background: #ff9800;
-    color: #fff;
+    background: purple;
+    color: black;
     transform: scale(1.1);
 }
 
@@ -948,7 +948,7 @@ p {
 }
 
 .faq-left h2 span {
-    color: orange;
+    color: purple;
 }
 
 .faq-left p {
@@ -1009,7 +1009,7 @@ p {
     font-size: 1.5rem;
     font-weight: normal;
     transition: transform 0.3s ease;
-    color: orange;
+    color: purple;
 }
 
 .faq-question[aria-expanded="true"] .faq-toggle {
@@ -1341,7 +1341,7 @@ p {
     background-size: cover; /* Cover the entire area */
     background-position: center; /* Center the image */
     background-repeat: no-repeat; /* Do not repeat the image */
-    color: white;
+    color: gray;
     border-radius: 25px;
     padding: 40px;
     display: flex;
