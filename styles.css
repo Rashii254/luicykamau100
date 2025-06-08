@@ -1,5 +1,4 @@
 /* --- Global Styles & Resets --- */
-/* Reset some default styles */
 * {
     margin: 0;
     padding: 0;
@@ -12,13 +11,13 @@ html {
 
 body {
     font-family: 'Segoe UI', Arial, sans-serif;
-    background: #f7f7f7;
+    background: skyblue;
     color: #222;
     line-height: 1.6;
 }
 
 /* Header Container */
-.header-container {
+.header-container {displa flex;
     position: fixed;
     top: 0;
     left: 0;
@@ -72,7 +71,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 12px 30px;
-    background-color:orange;
+    background-color:purple;
     color: white;
     position: relative;
     padding-left: 20px;
