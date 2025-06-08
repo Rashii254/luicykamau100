@@ -348,18 +348,21 @@ p {
 /* Style for the container holding the first two cards */
 .services-top-cards-row {
     display: flex;
-    justify-content: center; /* Centers the two cards horizontally */
-    gap: 38px; /* Space between the two cards */
+    /* --- KEY CHANGE HERE --- */
+    justify-content: space-between; /* This will push the first card to the left and the second to the right */
+    /* --- End of KEY CHANGE --- */
+    gap: 38px; /* Still maintains a minimum gap if space is constrained, but space-between will take precedence for spreading */
     margin-top: 32px;
     flex-wrap: wrap; /* Allows cards to wrap on smaller screens */
-    /* Optional: Limit the max width of this row if you want the two cards to not spread too wide */
-    max-width: 700px; /* Adjust this value if needed */
+    /* IMPORTANT: Adjust this max-width. It dictates how far apart the "left" and "right" cards will be.
+       A good starting point is the combined width of the two cards plus some desired margin.
+       (320px + 320px + ~60-100px for spacing if gap isn't enough) */
+    max-width: 750px; /* Adjust this value to control the spread */
     margin-left: auto;
     margin-right: auto; /* Centers the row itself */
     align-items: stretch; /* Ensures both cards have the same height */
     margin-bottom: 38px; /* Space between the top row and the third card */
 }
-
 
 .service-card {
     background: #fff;
@@ -462,44 +465,43 @@ p {
 
 /* Style for the third service card: content left, image right */
 .service-card-third {
-    background-color: #e6ffe6; /* Lighter green */
-    display: flex; /* Make it a flex container */
-    flex-direction: row; /* Align content horizontally */
-    align-items: center; /* Vertically center content and image */
-    justify-content: space-between; /* Space out content and image */
+    background-color: #e6ffe6;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
     padding: 30px;
     border-radius: 36px;
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
 
-    /* --- Key changes for the third card's positioning --- */
-    width: calc(100% - 64px); /* Full width minus padding from .services-section */
-    max-width: 1000px; /* Limit its maximum width on very large screens */
-    margin: 0 auto; /* Center the third card horizontally */
-    margin-top: 38px; /* Add space above it */
-    /* --- End of key changes --- */
+    /* For the third card to span roughly the same width as the top row for visual consistency */
+    max-width: 750px; /* Match or slightly exceed the max-width of .services-top-cards-row */
+    width: 100%; /* Allows it to shrink on smaller screens */
+    margin: 0 auto;
+    margin-top: 38px;
 
-    min-height: 250px; /* Adjust minimum height if needed for visual balance */
+    min-height: 250px;
 }
 
 /* Apply specific styles for content within the third card */
-.service-card-third .service-content-wrapper {
-    flex: 1; /* Allow content to take up available space */
-    text-align: left; /* Ensure text is left-aligned */
-    padding-right: 20px; /* Add spacing between text and image */
+.service-card-third .service-card-content { /* Changed from service-content-wrapper for consistency with your HTML */
+    flex: 1;
+    text-align: left;
+    padding-right: 20px;
 }
 
 /* Override .service-image for the third card */
 .service-card-third .service-image {
-    position: static; /* Remove absolute positioning */
-    margin-left: 20px; /* Add space between text and image */
-    width: 180px; /* Adjust width as needed */
+    position: static;
+    margin-left: 20px;
+    width: 180px;
     height: auto;
-    opacity: 1; /* Ensure full opacity */
-    flex-shrink: 0; /* Prevent the image from shrinking */
+    opacity: 1;
+    flex-shrink: 0;
 }
 
 .service-card-third .service-btn {
-    align-self: flex-start; /* Align button to the start of the content, if you had a .service-content wrapper */
+    align-self: flex-start;
 }
 
 
@@ -509,12 +511,13 @@ p {
         flex-direction: column; /* Stack first two cards vertically */
         align-items: center; /* Center stacked cards */
         max-width: none; /* Allow full width on smaller screens */
+        gap: 20px; /* Reduce gap when stacked */
     }
 
     .service-card {
         width: 90%; /* Make cards take up more width */
         max-width: 400px; /* Limit max width for readability */
-        margin-bottom: 20px; /* Add space between stacked cards */
+        margin-bottom: 0; /* Remove extra margin, gap handles it */
     }
 
     .service-card-third {
@@ -522,9 +525,10 @@ p {
         padding: 24px; /* Adjust padding for stacked layout */
         width: 90%; /* Make card take up more width */
         max-width: 400px; /* Limit max width for readability */
+        margin-top: 20px; /* Adjust space when stacked */
     }
 
-    .service-card-third .service-content-wrapper {
+    .service-card-third .service-card-content { /* Changed from service-content-wrapper */
         padding-right: 0;
         margin-bottom: 20px; /* Space between text and image when stacked */
     }
@@ -532,7 +536,7 @@ p {
     .service-card-third .service-image {
         margin-left: 0;
         margin-top: 15px; /* Add space when image is below content */
-        width: 120px; /* Adjust size for mobile */
+        width: 120px;
     }
 }
 
