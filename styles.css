@@ -810,77 +810,87 @@ p {
     }
 }   
 
-/* --- Community Section --- */
+/* Community Section Styles */
 .community-section {
-    padding: 80px 0; /* REMOVED horizontal padding */
-    background-color: var(--primary-blue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 48px 0;
+    background: #fafaf8;
 }
 
 .community-card {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
     align-items: center;
-    max-width: 1100px; /* KEPT: Specific max-width for this card */
-    margin: 0 auto; /* KEPT: Center the card */
-    background-color: var(--white);
-    border-radius: 15px;
-    box-shadow: var(--card-shadow);
-    overflow: hidden;
-    text-align: left;
-    padding: 0 20px; /* ADDED: Horizontal padding for the card itself */
+    justify-content: space-between;
+    background: #fff;
+    border-radius: 36px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+    padding: 48px 48px 48px 48px;
+    max-width: 950px;
+    width: 100%;
+    margin: 0 auto;
+    gap: 32px;
 }
 
 .community-content {
-    flex: 1;
-    min-width: 300px;
-    padding: 40px;
+    flex: 1 1 340px;
+    max-width: 400px;
 }
 
 .community-label {
-    color: var(--primary-blue);
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 0.9rem;
     display: block;
-    margin-bottom: 10px;
+    color: #18403c;
+    font-size: 0.9rem;
+    letter-spacing: 1.5px;
+    margin-bottom: 18px;
+    font-weight: 600;
 }
 
 .community-title {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    color: var(--heading-color);
+    color: #18403c;
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin-bottom: 18px;
+    line-height: 1.1;
 }
 
 .community-desc {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: var(--text-color);
-    margin-bottom: 30px;
+    color: #3a4a4a;
+    font-size: 1.08rem;
+    margin-bottom: 28px;
 }
 
 .community-btn {
-    background-color: var(--secondary-peach);
-    color: var(--white);
-    padding: 12px 30px;
+    background: #00332e;
+    color: #fff;
+    border: none;
+    border-radius: 24px;
+    padding: 14px 32px;
     font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.community-btn:hover {
+    background: #14504a;
 }
 
 .community-illustration {
-    flex: 1;
-    min-width: 300px;
+    flex: 1 1 340px;
     display: flex;
-    justify-content: center;
     align-items: center;
-    background-color: #eee; /* Placeholder background */
+    justify-content: center;
 }
 
 .community-illustration img {
-    border-radius: 0 15px 15px 0; /* Match card border-radius */
-    object-fit: cover;
-    height: 100%;
+    max-width: 340px;
     width: 100%;
-    min-height: 300px; /* Ensure image has some height */
+    border-radius: 0 32px 32px 0;
+    display: block;
+    background: none;
 }
 
 
