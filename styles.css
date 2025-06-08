@@ -253,7 +253,7 @@ p {
     gap: 50px;
 }
 
-.about-card-content {
+.about-card-content {display flex
     flex: 1;
     min-width: 300px;
     max-width: 600px;
@@ -424,7 +424,7 @@ p {
 /* --- Testimonials Section --- */
 .testimonials-section {
     padding: 80px 0; /* REMOVED horizontal padding */
-    background-color: var(--primary-blue);
+    /* background-color: var(--primary-blue); */
     color: var(--white);
 }
 
@@ -1683,7 +1683,7 @@ p {
     }
     .footer-right-card button {
         backgroun-
-        padding: 12px 30px;
+        padding:12px 30px;
         font-size: 1rem;
     }
 }
